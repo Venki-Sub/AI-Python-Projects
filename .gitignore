@@ -1,0 +1,19 @@
+# Virtual environments (students create their own)
+*_env/
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Node / Next.js
+node_modules/
+.next/
+
+# Secrets
+.env
+.env*.local
+
+# macOS
+.DS_Store

@@ -1,0 +1,10 @@
+# Hand tracking + voice projects
+# (CapturePhoto, ControlPPTGesture, MediaPipeGeust, MediaPipeSpeechUI, PPTcontrolGeustSpeech, SpeechRecognition)
+# Tested with Python 3.9 - 3.11. MediaPipe 0.10.9 still includes the "mp.solutions" API used here.
+mediapipe==0.10.9
+opencv-python
+pyautogui
+pynput
+Pillow
+SpeechRecognition
+PyAudio

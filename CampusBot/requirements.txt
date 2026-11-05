@@ -1,0 +1,3 @@
+# CampusBot (chat.py and app.py) - also needs the Ollama app: https://ollama.com
+ollama
+streamlit

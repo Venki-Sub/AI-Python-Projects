@@ -1,0 +1,6 @@
+# Machine learning projects (IMDBmoviePrediction, TeachableKerasWebcam)
+tensorflow
+pandas
+scikit-learn
+numpy
+opencv-python
