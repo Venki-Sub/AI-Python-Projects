@@ -19,6 +19,14 @@ Run:  python MLclassic/tp1_sklearn.py
 from sklearn.datasets import load_iris                    # a small, famous dataset of flowers
 from sklearn.model_selection import train_test_split      # splits data into train / test
 from sklearn.ensemble import RandomForestClassifier       # the model: a forest of decision trees
+# Other models to try (uncomment the import AND the matching "clf = ..." line in step 3):
+# from sklearn.linear_model import LogisticRegression     # draws straight lines between classes
+# from sklearn.neighbors import KNeighborsClassifier      # copies the species of the closest flowers
+# from sklearn.svm import SVC                             # Support Vector Machine: widest margin between classes
+# from sklearn.tree import DecisionTreeClassifier         # ONE decision tree (a forest has many)
+# from sklearn.naive_bayes import GaussianNB              # probabilities, very fast
+# from sklearn.ensemble import GradientBoostingClassifier # trees built one by one, each fixing the last one's mistakes
+# from sklearn.neural_network import MLPClassifier        # a small neural network
 from sklearn.metrics import classification_report, ConfusionMatrixDisplay  # tools to evaluate the model
 import matplotlib.pyplot as plt                           # draws charts (needed to show the confusion matrix)
 
@@ -41,6 +49,15 @@ X_tr, X_te, y_tr, y_te = train_test_split(
 # n_estimators=100 -> the forest contains 100 decision trees; the final answer is their majority vote
 # random_state=42  -> same trees every run, so everyone in class gets the same result
 clf = RandomForestClassifier(n_estimators=100, random_state=42)
+# Swap the model: comment out the line above and uncomment ONE line below (+ its import at the top).
+# Everything else stays the same, because every scikit-learn model has fit() and predict().
+# clf = LogisticRegression(max_iter=1000)                          # max_iter=1000 avoids a "did not converge" warning
+# clf = KNeighborsClassifier(n_neighbors=5)                        # try 3, 7, 15... and watch the F1 change
+# clf = SVC(kernel="rbf", C=1.0)                                   # also try kernel="linear"
+# clf = DecisionTreeClassifier(max_depth=3, random_state=42)       # max_depth limits how deep the tree grows
+# clf = GaussianNB()                                               # no settings needed
+# clf = GradientBoostingClassifier(n_estimators=100, random_state=42)
+# clf = MLPClassifier(hidden_layer_sizes=(16,), max_iter=2000, random_state=42)
 clf.fit(X_tr, y_tr)  # fit() = training: the model learns the link between measurements and species
 
 # ---------- 4. Evaluate the model ----------
