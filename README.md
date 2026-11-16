@@ -42,6 +42,7 @@ Every line of code is commented so you can read it like a lesson. 📖
 | 7 | [`PPTcontrolGeustSpeech.py`](PPTcontrolGeustSpeech.py) | ✋ + 🎙 | Finger moves the mouse, voice clicks | ⭐⭐⭐ |
 | 8 | [`MediaPipeSpeechUI.py`](MediaPipeSpeechUI.py) | ✋ + 🎙 + 🖥 | Same, inside a desktop app (Tkinter) | ⭐⭐⭐ |
 | 9 | [`CampusBot/`](CampusBot) | 💬 LLM chatbot | A local AI assistant (terminal + web app) | ⭐⭐⭐ |
+| 10 | [`MLclassic/tp1_sklearn.py`](MLclassic/tp1_sklearn.py) | 🌸 Classic ML | Random Forest classifies iris flowers (scikit-learn) | ⭐ |
 
 ---
 
@@ -52,7 +53,7 @@ Every line of code is commented so you can read it like a lesson. 📖
                                                                           ▲
  🎙 SpeechRecognition ────────────────────────────────────────────────────┘
 
- 🧠 TeachableKerasWebcam ──► 📊 IMDBmoviePrediction ──► 💬 CampusBot
+ 🌸 tp1_sklearn ──► 🧠 TeachableKerasWebcam ──► 📊 IMDBmoviePrediction ──► 💬 CampusBot
 ```
 
 ---
@@ -78,7 +79,7 @@ source mediapipe_env/bin/activate        # Windows: mediapipe_env\Scripts\activa
 pip install -r requirements-vision.txt
 ```
 
-**🧠 Machine learning projects** (5, 6)
+**🧠 Machine learning projects** (5, 6, 10)
 
 ```bash
 python3 -m venv ml_env
@@ -238,6 +239,21 @@ A chatbot for a school, running **100% on your computer** with [Ollama](https://
 
 </details>
 
+<details>
+<summary><b>🌸 10. MLclassic/tp1_sklearn.py — your first classic ML model</b></summary>
+
+Classifies **iris flowers** into 3 species (setosa, versicolor, virginica) from 4 measurements of their petals and sepals, using a **Random Forest** (100 decision trees that vote).
+
+```
+ 150 flowers ─► 80% train / 20% test ─► RandomForest(100 trees) ─► report + confusion matrix
+```
+
+Expected result: about **90% accuracy** on the 30 test flowers. A confusion-matrix window shows which species get mixed up.
+
+**You learn:** `train_test_split` with `stratify`, `fit` / `predict`, precision, recall, f1-score, confusion matrix.
+
+</details>
+
 ---
 
 ## 📁 Folder structure
@@ -256,6 +272,8 @@ AI-Python-Projects/
 │   ├── keras_model.h5        ← Teachable Machine model
 │   ├── labels.txt            ← its 4 class names
 │   └── imdb.csv              ← IMDB movie dataset
+├── MLclassic/
+│   └── tp1_sklearn.py        ← Random Forest on the Iris dataset
 ├── CampusBot/
 │   ├── chat.py               ← terminal chatbot
 │   ├── app.py                ← Streamlit web chatbot
@@ -290,7 +308,8 @@ AI-Python-Projects/
 5. 🧠 **TeachableKerasWebcam** — train a model on your own objects (rock / paper / scissors?).
 6. 📊 **IMDBmoviePrediction** — remove `rating` from the inputs. Does accuracy drop? Why?
 7. 🖥 **MediaPipeSpeechUI** — the video colours look blue: can you find and fix the bug?
-8. 💬 **CampusBot** — change the system prompt to create a bot for your own class or hobby.
+8. 🌸 **tp1_sklearn** — replace the Random Forest with `KNeighborsClassifier` or `DecisionTreeClassifier`. Which one scores best?
+9. 💬 **CampusBot** — change the system prompt to create a bot for your own class or hobby.
 
 ---
 
