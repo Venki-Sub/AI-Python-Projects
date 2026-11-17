@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e3a8a"/>
+      <stop offset="1" stop-color="#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#c7d2fe"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="340" rx="22" fill="url(#bg)"/>
+
+  <!-- neural network decoration (right side) -->
+  <circle cx="985" cy="170" r="190" fill="url(#glow)"/>
+  <g stroke="#93c5fd" stroke-opacity="0.35" stroke-width="1.5">
+    <line x1="880" y1="90" x2="985" y2="70"/><line x1="880" y1="90" x2="985" y2="140"/><line x1="880" y1="90" x2="985" y2="210"/><line x1="880" y1="90" x2="985" y2="280"/>
+    <line x1="880" y1="170" x2="985" y2="70"/><line x1="880" y1="170" x2="985" y2="140"/><line x1="880" y1="170" x2="985" y2="210"/><line x1="880" y1="170" x2="985" y2="280"/>
+    <line x1="880" y1="250" x2="985" y2="70"/><line x1="880" y1="250" x2="985" y2="140"/><line x1="880" y1="250" x2="985" y2="210"/><line x1="880" y1="250" x2="985" y2="280"/>
+    <line x1="985" y1="70" x2="1090" y2="130"/><line x1="985" y1="140" x2="1090" y2="130"/><line x1="985" y1="210" x2="1090" y2="130"/><line x1="985" y1="280" x2="1090" y2="130"/>
+    <line x1="985" y1="70" x2="1090" y2="210"/><line x1="985" y1="140" x2="1090" y2="210"/><line x1="985" y1="210" x2="1090" y2="210"/><line x1="985" y1="280" x2="1090" y2="210"/>
+  </g>
+  <g fill="#e0e7ff" stroke="#a5b4fc" stroke-width="3">
+    <circle cx="880" cy="90" r="13"/><circle cx="880" cy="170" r="13"/><circle cx="880" cy="250" r="13"/>
+    <circle cx="985" cy="70" r="13"/><circle cx="985" cy="140" r="13"/><circle cx="985" cy="210" r="13"/><circle cx="985" cy="280" r="13"/>
+  </g>
+  <g fill="#fde68a" stroke="#f59e0b" stroke-width="3">
+    <circle cx="1090" cy="130" r="15"/><circle cx="1090" cy="210" r="15"/>
+  </g>
+
+  <!-- title -->
+  <text x="70" y="128" font-size="62" font-weight="800" fill="url(#title)">AI Projects with Python</text>
+  <text x="72" y="178" font-size="25" fill="#cbd5e1">Hand tracking · Voice control · Machine learning · Chatbots</text>
+
+  <!-- topic chips -->
+  <g font-size="19" font-weight="600" fill="#ffffff">
+    <rect x="70" y="222" width="150" height="46" rx="23" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="145" y="252" text-anchor="middle">✋ Vision</text>
+    <rect x="236" y="222" width="140" height="46" rx="23" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="306" y="252" text-anchor="middle">🎙 Voice</text>
+    <rect x="392" y="222" width="190" height="46" rx="23" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="487" y="252" text-anchor="middle">🧠 Deep learning</text>
+    <rect x="598" y="222" width="150" height="46" rx="23" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.25"/>
+    <text x="673" y="252" text-anchor="middle">💬 LLMs</text>
+  </g>
+  <text x="72" y="306" font-size="17" fill="#94a3b8">Every line commented — made for students</text>
+</svg>

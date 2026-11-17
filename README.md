@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🤖 AI Projects with Python
+<img src="assets/banner.svg" alt="AI Projects with Python" width="100%">
 
 **Hands-on artificial intelligence projects for students — computer vision, voice control, machine learning and chatbots.**
 
@@ -161,18 +161,10 @@ Open a presentation, start the slideshow, then swipe! Press `q` to quit.
 
 **You learn:** comparing landmark positions to recognise a gesture.
 
-```
-        8   12  16  20      ← finger tips
-        |   |   |   |
-   4    7   11  15  19
-    \   6   10  14  18
-     3  5---9---13--17
-      \ |          /
-       2|         /
-        1        /
-         \      /
-          0 ────            ← wrist
-```
+The 21 hand landmarks found by MediaPipe. The code uses **4** (thumb tip), **8** (index tip), **3**, **9** and **12**:
+
+<p align="center"><img src="assets/hand_landmarks.png" alt="The 21 MediaPipe hand landmarks" width="85%"></p>
+<p align="center"><sub>Image: <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">Google MediaPipe documentation</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</sub></p>
 
 </details>
 
@@ -250,7 +242,17 @@ Classifies **iris flowers** into 3 species (setosa, versicolor, virginica) from 
  150 flowers ─► 80% train / 20% test ─► RandomForest(100 trees) ─► report + confusion matrix
 ```
 
-Expected result: about **90% accuracy** on the 30 test flowers. A confusion-matrix window shows which species get mixed up.
+Expected result: about **90% accuracy** on the 30 test flowers. A confusion-matrix window shows which species get mixed up:
+
+<p align="center"><img src="assets/tp1_confusion_matrix.png" alt="Confusion matrix of the Random Forest" width="420"></p>
+
+The diagonal holds the correct answers. All 3 mistakes are between *versicolor* and *virginica*, whose petals have similar sizes.
+
+**Try other models:** the file contains 7 other models, ready to uncomment. Here are their F1 scores on the same test flowers:
+
+<p align="center"><img src="assets/tp1_model_comparison.png" alt="F1 score of 8 models on the Iris dataset" width="600"></p>
+
+⚠️ With only 30 test flowers, one mistake changes the F1 by about 0.03, so don't over-trust the ranking. Change `random_state` and see how it moves!
 
 **You learn:** `train_test_split` with `stratify`, `fit` / `predict`, precision, recall, f1-score, confusion matrix.
 
