@@ -29,8 +29,8 @@ from tensorflow.keras import layers                            # building blocks
 import os                                                      # os: build file paths
 
 # Find the Model/ folder from THIS file's location, so the script works
-# no matter which folder you run it from (".." = go up one folder).
-MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Model")
+# no matter which folder you run it from (Model/ sits next to this file).
+MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Model")
 
 # ---------- 1. Load dataset ----------
 data = pd.read_csv(os.path.join(MODEL_DIR, 'imdb.csv'))  # a DataFrame = a table with rows (movies) and columns

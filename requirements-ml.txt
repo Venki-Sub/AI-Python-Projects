@@ -1,4 +1,4 @@
-# Machine learning projects (IMDBmoviePrediction, TeachableKerasWebcam)
+# Projects in 03_Machine_Learning/ (tp1_sklearn, IMDBmoviePrediction, TeachableKerasWebcam)
 tensorflow
 pandas
 scikit-learn

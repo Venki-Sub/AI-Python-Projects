@@ -22,8 +22,8 @@ from tensorflow.keras.layers import DepthwiseConv2D  # a layer type used inside 
 import os                                                      # os: build file paths
 
 # Find the Model/ folder from THIS file's location, so the script works
-# no matter which folder you run it from (".." = go up one folder).
-MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Model")
+# no matter which folder you run it from (Model/ sits next to this file).
+MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Model")
 
 # ---------- 1. Load the class names ----------
 try:

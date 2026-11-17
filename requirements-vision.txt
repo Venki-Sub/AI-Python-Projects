@@ -1,6 +1,6 @@
-# Hand tracking + voice projects
-# (CapturePhoto, ControlPPTGesture, MediaPipeGeust, MediaPipeSpeechUI, PPTcontrolGeustSpeech, SpeechRecognition)
-# Tested with Python 3.9 - 3.11. MediaPipe 0.10.9 still includes the "mp.solutions" API used here.
+# Projects in 01_Starter/ and 02_Vision_and_Voice/
+# Tested with Python 3.9. MediaPipe 0.10.9 still includes the "mp.solutions" API used here.
+# macOS: run  brew install portaudio  BEFORE installing (needed by PyAudio).
 mediapipe==0.10.9
 opencv-python
 pyautogui
@@ -8,3 +8,6 @@ pynput
 Pillow
 SpeechRecognition
 PyAudio
+scikit-learn
+matplotlib
+ollama

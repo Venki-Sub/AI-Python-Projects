@@ -17,3 +17,7 @@ node_modules/
 
 # macOS
 .DS_Store
+
+# Files created by the starter projects (students' photos and notes stay private)
+photos/
+notes.txt
