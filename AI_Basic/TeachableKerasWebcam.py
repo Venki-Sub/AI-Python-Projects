@@ -19,10 +19,15 @@ import tensorflow as tf                             # TensorFlow: the machine le
 import numpy as np                                  # NumPy: fast maths on arrays (images are arrays!)
 from tensorflow.keras.models import load_model      # function to load a saved Keras model
 from tensorflow.keras.layers import DepthwiseConv2D  # a layer type used inside the model
+import os                                                      # os: build file paths
+
+# Find the Model/ folder from THIS file's location, so the script works
+# no matter which folder you run it from (".." = go up one folder).
+MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Model")
 
 # ---------- 1. Load the class names ----------
 try:
-    with open('Model/labels.txt', 'r') as f:  # open the file in read mode ('r')
+    with open(os.path.join(MODEL_DIR, 'labels.txt'), 'r') as f:  # open the file in read mode ('r')
         # Read every line and remove spaces/newlines -> ['0 Handsok', '1 HandRight', ...]
         labels = [line.strip() for line in f.readlines()]
     print("Labels loaded successfully:", labels)
@@ -44,7 +49,7 @@ class CustomDepthwiseConv2D(DepthwiseConv2D):
 # ---------- 3. Load the trained model ----------
 try:
     # custom_objects tells Keras: "when you see DepthwiseConv2D, use our fixed version"
-    model = load_model('Model/keras_model.h5', custom_objects={'DepthwiseConv2D': CustomDepthwiseConv2D})
+    model = load_model(os.path.join(MODEL_DIR, 'keras_model.h5'), custom_objects={'DepthwiseConv2D': CustomDepthwiseConv2D})
     print("Model loaded successfully.")
 except Exception as e:
     print(f"Error loading model: {e}")

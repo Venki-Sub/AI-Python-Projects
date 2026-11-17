@@ -24,6 +24,7 @@ Run:  python ControlPPTGesture.py   (press 'q' in the video window to quit)
 import cv2                 # OpenCV: read the webcam and draw on images
 import mediapipe as mp     # MediaPipe: Google's library for hand tracking & pose detection
 import pyautogui           # PyAutoGUI: lets Python press keys and move the mouse
+import time                # time: to wait between two key presses
 
 # ---------- Set up MediaPipe ----------
 mp_hands = mp.solutions.hands  # shortcut to the "hands" solution
@@ -39,6 +40,11 @@ cap = cv2.VideoCapture(0)  # 0 = default camera
 
 # This variable stores the last gesture we recognised (None = no gesture)
 gesture = None
+
+# Cooldown: the camera sees ~30 images per second, so a gesture held for 1 second
+# would press the key 30 times! We only allow one key press per COOLDOWN seconds.
+COOLDOWN = 1.0          # seconds to wait after each key press (try 0.5 or 2)
+last_action_time = 0    # when we last pressed a key (0 = never)
 
 
 def detect_gesture(landmarks):
@@ -85,6 +91,12 @@ while cap.isOpened():
 
             # Decide which gesture the hand is making
             detect_gesture(hand_landmarks.landmark)
+
+            # Too soon after the last key press? Ignore this gesture.
+            if time.time() - last_action_time < COOLDOWN:
+                gesture = None
+            elif gesture is not None:
+                last_action_time = time.time()  # a key will be pressed now -> start the cooldown
 
             # Press the matching key, then reset the gesture so it is not repeated
             if gesture == "next":

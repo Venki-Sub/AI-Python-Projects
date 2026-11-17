@@ -26,9 +26,14 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder  # scale numbers
 from sklearn.compose import ColumnTransformer                  # apply different transforms to different columns
 import tensorflow as tf                                        # TensorFlow: neural networks
 from tensorflow.keras import layers                            # building blocks of a neural network
+import os                                                      # os: build file paths
+
+# Find the Model/ folder from THIS file's location, so the script works
+# no matter which folder you run it from (".." = go up one folder).
+MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "Model")
 
 # ---------- 1. Load dataset ----------
-data = pd.read_csv('Model/imdb.csv')  # a DataFrame = a table with rows (movies) and columns
+data = pd.read_csv(os.path.join(MODEL_DIR, 'imdb.csv'))  # a DataFrame = a table with rows (movies) and columns
 
 # ---------- 2. Choose the columns (features) ----------
 # Categorical = text values (e.g. genre "Drama")

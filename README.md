@@ -34,13 +34,13 @@ Every line of code is commented so you can read it like a lesson. 📖
 | # | Project | Topic | What it does | Level |
 |:-:|---|---|---|:-:|
 | 1 | [`CapturePhoto.py`](CapturePhoto.py) | 📷 Webcam | Takes a photo and saves it on your Desktop | ⭐ |
-| 2 | [`SpeechRecognition.py`](SpeechRecognition.py) | 🎙 Voice | Clicks the mouse when you say a command | ⭐ |
-| 3 | [`MediaPipeGeust.py`](MediaPipeGeust.py) | ✋ Hand tracking | Swipe your finger to change slides | ⭐⭐ |
-| 4 | [`ControlPPTGesture.py`](ControlPPTGesture.py) | ✋ Gestures | Thumb up / down & finger positions control a presentation | ⭐⭐ |
-| 5 | [`TeachableKerasWebcam.py`](TeachableKerasWebcam.py) | 🧠 Deep learning | Recognises hand signs live with a Teachable Machine model | ⭐⭐ |
-| 6 | [`IMDBmoviePrediction.py`](IMDBmoviePrediction.py) | 📊 Machine learning | Trains a neural network on IMDB movies to predict if you'll like one | ⭐⭐⭐ |
-| 7 | [`PPTcontrolGeustSpeech.py`](PPTcontrolGeustSpeech.py) | ✋ + 🎙 | Finger moves the mouse, voice clicks | ⭐⭐⭐ |
-| 8 | [`MediaPipeSpeechUI.py`](MediaPipeSpeechUI.py) | ✋ + 🎙 + 🖥 | Same, inside a desktop app (Tkinter) | ⭐⭐⭐ |
+| 2 | [`AI_Basic/SpeechRecognition.py`](AI_Basic/SpeechRecognition.py) | 🎙 Voice | Clicks the mouse when you say a command | ⭐ |
+| 3 | [`AI_Basic/MediaPipeGeust.py`](AI_Basic/MediaPipeGeust.py) | ✋ Hand tracking | Swipe your finger to change slides | ⭐⭐ |
+| 4 | [`AI_Basic/ControlPPTGesture.py`](AI_Basic/ControlPPTGesture.py) | ✋ Gestures | Thumb up / down & finger positions control a presentation | ⭐⭐ |
+| 5 | [`AI_Basic/TeachableKerasWebcam.py`](AI_Basic/TeachableKerasWebcam.py) | 🧠 Deep learning | Recognises hand signs live with a Teachable Machine model | ⭐⭐ |
+| 6 | [`AI_Basic/IMDBmoviePrediction.py`](AI_Basic/IMDBmoviePrediction.py) | 📊 Machine learning | Trains a neural network on IMDB movies to predict if you'll like one | ⭐⭐⭐ |
+| 7 | [`AI_Basic/PPTcontrolGeustSpeech.py`](AI_Basic/PPTcontrolGeustSpeech.py) | ✋ + 🎙 | Finger moves the mouse, voice clicks | ⭐⭐⭐ |
+| 8 | [`AI_Basic/MediaPipeSpeechUI.py`](AI_Basic/MediaPipeSpeechUI.py) | ✋ + 🎙 + 🖥 | Same, inside a desktop app (Tkinter) | ⭐⭐⭐ |
 | 9 | [`CampusBot/`](CampusBot) | 💬 LLM chatbot | A local AI assistant (terminal + web app) | ⭐⭐⭐ |
 | 10 | [`MLclassic/tp1_sklearn.py`](MLclassic/tp1_sklearn.py) | 🌸 Classic ML | Random Forest classifies iris flowers (scikit-learn) | ⭐ |
 
@@ -76,6 +76,7 @@ MediaPipe and TensorFlow sometimes disagree on library versions, so we use **two
 ```bash
 python3 -m venv mediapipe_env
 source mediapipe_env/bin/activate        # Windows: mediapipe_env\Scripts\activate
+brew install portaudio                   # macOS only: needed by PyAudio (microphone)
 pip install -r requirements-vision.txt
 ```
 
@@ -104,7 +105,8 @@ ollama pull llama3.2:3b
 python CapturePhoto.py
 ```
 
-> 💡 Always run the scripts **from the main folder**, because they look for files in `Model/`.
+> 💡 Projects in `AI_Basic/` are run the same way: `python AI_Basic/ControlPPTGesture.py`.
+> They find the `Model/` folder by themselves, so you can also run them from inside `AI_Basic/`.
 
 ---
 
@@ -120,7 +122,7 @@ Opens the webcam, takes **one picture**, shows it and saves it as `captured_imag
 </details>
 
 <details>
-<summary><b>🎙 2. SpeechRecognition.py — control the mouse with your voice</b></summary>
+<summary><b>🎙 2. AI_Basic/SpeechRecognition.py — control the mouse with your voice</b></summary>
 
 Listens to the microphone and sends the audio to Google's free speech-to-text service.
 
@@ -137,7 +139,7 @@ Needs an internet connection.
 </details>
 
 <details>
-<summary><b>✋ 3. MediaPipeGeust.py — swipe to change slides</b></summary>
+<summary><b>✋ 3. AI_Basic/MediaPipeGeust.py — swipe to change slides</b></summary>
 
 MediaPipe finds the **21 key points** of your hand. We follow the tip of your index finger: if it moves more than 100 pixels left or right, the program presses the ← or → key.
 
@@ -148,7 +150,7 @@ Open a presentation, start the slideshow, then swipe! Press `q` to quit.
 </details>
 
 <details>
-<summary><b>✋ 4. ControlPPTGesture.py — gesture remote control</b></summary>
+<summary><b>✋ 4. AI_Basic/ControlPPTGesture.py — gesture remote control</b></summary>
 
 | Gesture | Key | Action |
 |---|---|---|
@@ -175,7 +177,7 @@ Open a presentation, start the slideshow, then swipe! Press `q` to quit.
 </details>
 
 <details>
-<summary><b>🧠 5. TeachableKerasWebcam.py — your own image classifier</b></summary>
+<summary><b>🧠 5. AI_Basic/TeachableKerasWebcam.py — your own image classifier</b></summary>
 
 Uses a model trained on [Teachable Machine](https://teachablemachine.withgoogle.com) to recognise 4 hand signs: `Handsok`, `HandRight`, `HandLeft`, `HandUp`.
 
@@ -186,7 +188,7 @@ Uses a model trained on [Teachable Machine](https://teachablemachine.withgoogle.
 </details>
 
 <details>
-<summary><b>📊 6. IMDBmoviePrediction.py — a neural network on real data</b></summary>
+<summary><b>📊 6. AI_Basic/IMDBmoviePrediction.py — a neural network on real data</b></summary>
 
 Trains a neural network on `Model/imdb.csv` (thousands of movies) to predict if a movie is "liked" (rating > 7), then tests it on a random movie.
 
@@ -199,7 +201,7 @@ Trains a neural network on `Model/imdb.csv` (thousands of movies) to predict if 
 </details>
 
 <details>
-<summary><b>✋🎙 7. PPTcontrolGeustSpeech.py — hands-free mouse</b></summary>
+<summary><b>✋🎙 7. AI_Basic/PPTcontrolGeustSpeech.py — hands-free mouse</b></summary>
 
 Your **index finger moves the mouse**, your **voice clicks** (same French commands as project 2). Runs without a window. Say `arrêt` to quit.
 
@@ -208,7 +210,7 @@ Your **index finger moves the mouse**, your **voice clicks** (same French comman
 </details>
 
 <details>
-<summary><b>🖥 8. MediaPipeSpeechUI.py — the desktop app version</b></summary>
+<summary><b>🖥 8. AI_Basic/MediaPipeSpeechUI.py — the desktop app version</b></summary>
 
 Same as project 7, but inside a **Tkinter window** that shows the webcam and pop-ups when a voice command is detected.
 
@@ -261,13 +263,14 @@ Expected result: about **90% accuracy** on the 30 test flowers. A confusion-matr
 ```
 AI-Python-Projects/
 ├── CapturePhoto.py
-├── SpeechRecognition.py
-├── MediaPipeGeust.py
-├── ControlPPTGesture.py
-├── PPTcontrolGeustSpeech.py
-├── MediaPipeSpeechUI.py
-├── TeachableKerasWebcam.py
-├── IMDBmoviePrediction.py
+├── AI_Basic/
+│   ├── SpeechRecognition.py
+│   ├── MediaPipeGeust.py
+│   ├── ControlPPTGesture.py
+│   ├── PPTcontrolGeustSpeech.py
+│   ├── MediaPipeSpeechUI.py
+│   ├── TeachableKerasWebcam.py
+│   └── IMDBmoviePrediction.py
 ├── Model/
 │   ├── keras_model.h5        ← Teachable Machine model
 │   ├── labels.txt            ← its 4 class names
@@ -294,7 +297,6 @@ AI-Python-Projects/
 | `module 'mediapipe' has no attribute 'solutions'` | Install the pinned version: `pip install mediapipe==0.10.9` |
 | `PyAudio` fails to install | macOS: `brew install portaudio` then `pip install pyaudio`. Windows: `pip install pipwin && pipwin install pyaudio` |
 | Voice command not recognised | Speak clearly, check your internet, and check the microphone permission. |
-| `FileNotFoundError: Model/...` | Run the script from the main folder, not from inside another folder. |
 | CampusBot: connection refused | Start the Ollama app and run `ollama pull llama3.2:3b`. |
 
 ---
