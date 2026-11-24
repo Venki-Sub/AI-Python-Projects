@@ -17,7 +17,7 @@ import mediapipe as mp
 hands = mp.solutions.hands.Hands(max_num_hands=1, min_detection_confidence=0.7)  # hand detector
 draw = mp.solutions.drawing_utils                                                # to draw the hand
 
-FINGER_TIPS = [8, 12, 16, 20]  # tips of index, middle, ring and pinky fingers
+FINGER_TIPS = [8, 12, 16, 20]  # 4 = thumb, 8,12,16,20 = tips of index, middle, ring and pinky fingers
 
 
 def count_fingers(points):
