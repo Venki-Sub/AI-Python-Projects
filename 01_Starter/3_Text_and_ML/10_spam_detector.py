@@ -9,7 +9,7 @@ How it works:
   1. CountVectorizer turns each sentence into word counts ("gratuit": 1, "cours": 0...)
   2. Naive Bayes learns which words appear more often in spam
 
-Run:  python 10_spam_detector.py      (press Enter on an empty line to quit)
+Run:  python 10_spam_detector.py      (type q, or press Enter on an empty line, to quit)
 Try:  "gagnez de l'argent", "le cours est demain"... then add YOUR examples to make it smarter!
 """
 
@@ -31,7 +31,7 @@ model = MultinomialNB().fit(X, labels)         # train the model
 
 while True:
     message = input("\nMessage: ")
-    if message == "":
+    if message.strip().lower() in ("", "q"):   # empty line or q -> stop
         break
     prediction = model.predict(vectorizer.transform([message]))[0]  # transform, then predict
     print("->", "🚫 SPAM" if prediction == "spam" else "✅ OK")

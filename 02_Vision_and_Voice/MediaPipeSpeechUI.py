@@ -14,7 +14,7 @@ Why a thread? Listening to the microphone "blocks" (waits) until you speak.
 If we did that in the main program, the video would freeze. So the voice
 part runs in a separate THREAD, in parallel with the video.
 
-Run:  python MediaPipeSpeechUI.py   (close the window to quit)
+Run:  python MediaPipeSpeechUI.py   (press 'q' in the window, or close it, to quit)
 """
 
 import cv2                                 # OpenCV: webcam + image processing
@@ -50,6 +50,9 @@ root.geometry("800x600")             # window size: width x height
 # A Label widget can display an image -> we use it to show the webcam video
 video_label = tk.Label(root)
 video_label.pack()  # pack() places the widget in the window
+
+# Press 'q' while the window is selected -> close the window -> the app quits
+root.bind("<q>", lambda event: root.destroy())
 
 
 def show_message(command):

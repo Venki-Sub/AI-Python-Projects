@@ -11,7 +11,7 @@ Control your computer with HAND + VOICE, without any window (runs in the backgro
 Great for controlling a presentation from a distance!
 (The original comments are in French - English translations are added next to them.)
 
-Run:  python PPTcontrolGeustSpeech.py   (say "arrêt" to quit)
+Run:  python PPTcontrolGeustSpeech.py   (type q + Enter in the terminal, or say "arrêt", to quit)
 """
 
 import sys                              # sys: system functions (not used yet, handy for sys.exit())
@@ -81,9 +81,22 @@ def listen_for_commands():
         # Lancer le thread d'écoute des commandes vocales
 
 
+def wait_for_q():
+    """Wait until the user types q + Enter in the terminal (there is no window to press q in)."""
+    try:
+        while input().strip().lower() != "q":
+            pass
+    except EOFError:      # Ctrl+D also counts as "quit"
+        pass
+
+
 # Start the voice thread (daemon=True: it dies automatically when the main program ends)
 voice_thread = threading.Thread(target=listen_for_commands, daemon=True)
 voice_thread.start()
+# Keyboard thread: lets you quit with q + Enter
+key_thread = threading.Thread(target=wait_for_q, daemon=True)
+key_thread.start()
+print("Type q + Enter (or say \"arrêt\") to quit.")
 
 # ---------- Main loop: one turn per webcam frame ----------
 while cap.isOpened():
@@ -119,6 +132,8 @@ while cap.isOpened():
     # Affichage  (= display). Uncomment the next line to see the webcam video
     # cv2.imshow('Frame', frame)
     if voice_thread.is_alive() == False:   # the user said "arrêt" -> voice thread ended -> quit
+        break
+    if key_thread.is_alive() == False:     # the user typed q + Enter -> quit
         break
     if cv2.waitKey(1) & 0xFF == ord('q'):  # 'q' only works if a cv2 window is open
         break

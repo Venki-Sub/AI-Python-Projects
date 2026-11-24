@@ -6,7 +6,7 @@ Compare it with project 15 and CampusBot (04_CampusBot), which use a real AI mod
   - here: fast, predictable, but it understands NOTHING outside its rules
   - with an AI model: understands any sentence, but can make things up
 
-Run:  python 14_rule_chatbot.py      (type "bye" to quit)
+Run:  python 14_rule_chatbot.py      (type "bye" or q to quit)
 Try:  ask "what is your name?" and then "how are you called?" - why does only one work?
 """
 
@@ -24,7 +24,7 @@ RULES = {
 print("RuleBot: Hello! Type 'bye' to quit.")
 while True:
     message = input("You: ").lower()
-    if "bye" in message:
+    if "bye" in message or message.strip() == "q":
         print("RuleBot: Goodbye!")
         break
     for keyword, answers in RULES.items():

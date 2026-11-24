@@ -4,7 +4,7 @@
 Same idea as the spam detector, but the model guesses if a sentence is
 HAPPY or SAD - and how SURE it is (a probability).
 
-Run:  python 11_mood_detector.py      (press Enter on an empty line to quit)
+Run:  python 11_mood_detector.py      (type q, or press Enter on an empty line, to quit)
 Try:  "je suis super content", "quelle journée horrible"... What about "pas mal" ? Why is it hard?
 """
 
@@ -24,7 +24,7 @@ model = MultinomialNB().fit(vectorizer.fit_transform(texts), labels)
 
 while True:
     sentence = input("\nHow do you feel? ")
-    if sentence == "":
+    if sentence.strip().lower() in ("", "q"):   # empty line or q -> stop
         break
     X = vectorizer.transform([sentence])
     mood = model.predict(X)[0]

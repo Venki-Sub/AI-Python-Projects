@@ -6,15 +6,18 @@ The simplest VOICE project: speak French commands to click the mouse.
   "clic gauche" = left click     "clic droit" = right click
   "double clic" = double click   "arrêt"      = stop the program
 
+To quit from the keyboard: type q then press Enter in the terminal.
+
 Uses Google's free speech-to-text service, so you need an internet connection.
 (Change language="fr-FR" to "en-US" and the command words to use English!)
 
-Run:  python SpeechRecognition.py
+Run:  python SpeechRecognition.py   (type q + Enter, or say "arrêt", to quit)
 """
 
 import speech_recognition as sr  # SpeechRecognition: turns microphone audio into text
 import pyautogui                 # PyAutoGUI: controls the mouse & keyboard
 import threading                 # threading: run code in parallel (in a "thread")
+import time                      # time: small pauses with time.sleep()
 
 
 def listen_for_commands():
@@ -51,9 +54,25 @@ def listen_for_commands():
                 print(f"Error: {str(e)}")
 
 
+def wait_for_q():
+    """Wait until the user types q + Enter in the terminal.
+    (A terminal only sends what you type after you press Enter.)"""
+    try:
+        while input().strip().lower() != "q":
+            pass
+    except EOFError:      # Ctrl+D also counts as "quit"
+        pass
+
+
 # Start voice command listening in a separate thread
 voice_thread = threading.Thread(target=listen_for_commands, daemon=True)
 voice_thread.start()
+# And the keyboard in another one, so both can happen at the same time
+key_thread = threading.Thread(target=wait_for_q, daemon=True)
+key_thread.start()
 
-voice_thread.join()  # join() = wait here until the thread is finished (after "arrêt")
-print("Voice command thread has completed.")
+print("Type q + Enter (or say \"arrêt\") to quit.")
+# Wait until one of the two threads ends: "arrêt" was said OR q was typed
+while voice_thread.is_alive() and key_thread.is_alive():
+    time.sleep(0.1)
+print("Voice command listener stopped.")  # daemon=True -> the other thread stops with the program

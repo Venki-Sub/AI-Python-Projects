@@ -110,7 +110,7 @@ Used by `SpeechRecognition.py`, `PPTcontrolGeustSpeech.py` and `MediaPipeSpeechU
 | `clic gauche` | Left click |
 | `clic droit` | Right click |
 | `double clic` | Double click |
-| `arrêt` | Stop |
+| `arrêt` | Stop (or type `q` + Enter in the terminal / press `q` in the app window) |
 
 </details>
 
@@ -274,6 +274,16 @@ python 01_Starter/1_Camera/01_face_detector.py
 ```
 
 > 💡 In VS Code: `Cmd+Shift+P` → **Python: Select Interpreter** → pick the environment from the table above.
+
+### 4. Quit a project — always `q`
+
+| Project type | How to quit |
+|---|---|
+| 📷 Camera window (OpenCV / Tkinter) | Click the video window, then press `q` |
+| 🎙 Voice / no window | Type `q` then **Enter** in the terminal (a terminal only sends keys after Enter) — or say the stop word |
+| 📝 Text in the terminal | Type `q` (or an empty line) then **Enter** |
+
+> 🆘 If anything gets stuck: `Ctrl+C` in the terminal always stops the program.
 
 ---
 
