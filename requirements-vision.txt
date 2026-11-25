@@ -11,3 +11,4 @@ PyAudio
 scikit-learn
 matplotlib
 ollama
+faster-whisper
